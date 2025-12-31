@@ -1,108 +1,70 @@
 body{
     margin:0;
-    min-height:100vh;
+    height:100vh;
     display:flex;
     justify-content:center;
     align-items:center;
     background:black;
     font-family: Arial, sans-serif;
-    padding:20px;
 }
 
 /* ANIMACIÓN */
 @keyframes latido{
     0%   { transform: rotate(45deg) scale(1); }
-    50%  { transform: rotate(45deg) scale(1.07); }
+    50%  { transform: rotate(45deg) scale(1.08); }
     100% { transform: rotate(45deg) scale(1); }
 }
 
-/* ===== CORAZÓN ===== */
 .corazon{
-    width:300px;
-    height:300px;
+    width:280px;
+    height:280px;
     background:#ff4d6d;
     position:relative;
     transform:rotate(45deg);
-    animation: latido 1.4s infinite;
+    animation: latido 1.3s infinite;
 }
 
-/* círculos */
+/* círculos del corazón */
 .corazon::before,
 .corazon::after{
     content:"";
-    width:300px;
-    height:300px;
+    width:280px;
+    height:280px;
     background:#ff4d6d;
     position:absolute;
     border-radius:50%;
-    z-index:1;
+    z-index:1;   /* DETRÁS del texto */
 }
 
 .corazon::before{
-    top:-150px;
+    top:-140px;
     left:0;
 }
 
 .corazon::after{
-    left:-150px;
+    left:-140px;
     top:0;
 }
 
-/* ===== TEXTO ===== */
+/* TEXTO */
 .mensaje{
     position:absolute;
     top:50%;
     left:50%;
     transform:translate(-50%,-50%) rotate(-45deg);
-    width:210px;
+    width:200px;
     text-align:center;
     color:white;
-    z-index:2;
+    z-index:2;   /* ENCIMA del corazón */
 }
 
 .mensaje h1{
-    font-size:18px;
-    margin:0 0 10px;
+    font-size:16px;
+    margin:0 0 8px;
 }
 
 .mensaje p{
-    font-size:14px;
+    font-size:13px;
     margin:6px 0;
-    line-height:1.45;
-}
-
-/* ===================== */
-/* 📱 CELULAR */
-@media (max-width: 600px){
-    .corazon{
-        width:220px;
-        height:220px;
-    }
-
-    .corazon::before,
-    .corazon::after{
-        width:220px;
-        height:220px;
-    }
-
-    .corazon::before{
-        top:-110px;
-    }
-
-    .corazon::after{
-        left:-110px;
-    }
-
-    .mensaje{
-        width:170px;
-    }
-
-    .mensaje h1{
-        font-size:15px;
-    }
-
-    .mensaje p{
-        font-size:12px;
-        line-height:1.35;
-    }
+    line-height:1.4;
 }
